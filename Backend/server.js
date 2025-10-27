@@ -9,6 +9,7 @@ const dotenv = require('dotenv');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const kycRoutes = require('./routes/kycRoutes'); // ✅ Added KYC routes
+const documentVerificationRoutes = require('./routes/documentVerificationRoutes'); // ✅ Added Document routes
 const logger = require('./utils/logger'); // Winston logger
 const errorHandler = require('./GlobalExceptionHandler/errorHandler'); // Central error handler
 
@@ -47,6 +48,7 @@ app.get('/', (req, res) => {
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/kyc', kycRoutes); // ✅ Mounted KYC
+app.use('/api/document', documentVerificationRoutes); // ✅ Mounted Document routes
 
 // ✅ Global error handler should be last
 app.use(errorHandler);
